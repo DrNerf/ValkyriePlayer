@@ -1,0 +1,80 @@
+﻿<Window x:Class="ValkyriePlayer.Shell"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:prism="http://www.codeplex.com/prism"
+        Title="MainWindow" Height="500" Width="350" WindowStyle="None" AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen">
+    <Border BorderThickness="2, 0, 2, 2" BorderBrush="#FFFF5B5B">
+        <DockPanel Background="#FF2C2E36">
+            <DockPanel DockPanel.Dock="Top" 
+                       Height="35"
+                       Background="#FFFF5B5B"
+                       LastChildFill="True">
+                <StackPanel DockPanel.Dock="Right"
+                            Orientation="Horizontal">
+
+                    <Button Background="#FF666666" 
+                            BorderThickness="0" 
+                            Foreground="{x:Null}" 
+                            Cursor="Hand"
+                            Margin="1"
+                            Click="MinimizeApp">
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type ButtonBase}">
+                                <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                    <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#FF2C2E36" TargetName="border"></Setter>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Button.Template>
+                        <Canvas Width="24" Height="24">
+                            <Path Margin="0, 5, 0, 0" Data="M20,14H4V10H20" Fill="#FFFF5B5B" />
+                        </Canvas>
+                    </Button>
+                    <Button Background="#FF666666" 
+                            BorderThickness="0" 
+                            Foreground="{x:Null}" 
+                            Cursor="Hand"
+                            Margin="1"
+                            Click="ShutdownApp">
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type ButtonBase}">
+                                <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                    <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#FF2C2E36" TargetName="border"></Setter>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Button.Template>
+                        <Canvas Width="24" Height="24">
+                            <Path Data="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" Fill="#FFFF5B5B" />
+                        </Canvas>
+                    </Button>
+                </StackPanel>
+                <Grid>
+                    <Thumb PreviewMouseDown="Thumb_PreviewMouseDown"
+                           Visibility="Visible" 
+                           Opacity="0"
+                           HorizontalAlignment="Stretch">
+                    </Thumb>
+                    <Label Name="WindowTitle"
+                           IsHitTestVisible="False"
+                           VerticalAlignment="Center"
+                           FontSize="16"
+                           Foreground="#FF2C2E36"
+                           Content="{Binding PlayerTitle}"></Label>
+                </Grid>
+            </DockPanel>
+            <Grid>
+                <ContentControl Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" prism:RegionManager.RegionName="SettingsRegion"></ContentControl>
+            </Grid>
+        </DockPanel>
+    </Border>
+</Window>
