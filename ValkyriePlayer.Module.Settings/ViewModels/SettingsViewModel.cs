@@ -14,7 +14,9 @@ namespace ValkyriePlayer.Module.Settings.ViewModels
 
         public SettingsViewModel()
         {
-            Resolutions = Globals.GetAvailableResolutions().ToList();
+            Resolutions = Globals.GetAvailableResolutions()
+                .Reverse()
+                .ToList();
         }
     }
 }
