@@ -73,7 +73,29 @@
                 </Grid>
             </DockPanel>
             <Grid>
-                <ContentControl Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" prism:RegionManager.RegionName="SettingsRegion"></ContentControl>
+                <!--<ContentControl Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" prism:RegionManager.RegionName="SettingsRegion"></ContentControl>-->
+                <MediaElement Source="{StaticResource LoadingMedia}" 
+                              LoadedBehavior="Play" 
+                              HorizontalAlignment="Center" 
+                              VerticalAlignment="Center"
+                              Name="LoadingElement">
+                    <MediaElement.Triggers>
+                        <EventTrigger RoutedEvent="MediaElement.Loaded">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+
+                                        <!-- The MediaTimeline has a RepeatBehavior="Forever" which makes the media play
+                         over and over indefinitely.-->
+                                        <MediaTimeline Source="{StaticResource LoadingMedia}" Storyboard.TargetName="LoadingElement"  
+                     RepeatBehavior="Forever" />
+
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                    </MediaElement.Triggers>
+                </MediaElement>
             </Grid>
         </DockPanel>
     </Border>

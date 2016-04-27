@@ -27,10 +27,12 @@
             <Image Source="E:\Projects\GitHub\ValkyriePlayer\Globals\Images\VGLogoWithShadow.png"/>
         </Border>
         <Label Grid.Row="1" 
-			FontSize="20" 
-			VerticalAlignment="Center"
-			HorizontalAlignment="Right"
-			Foreground="#FFFF5B5B" Content="Resolution:"/>
+			    FontSize="20" 
+			    VerticalAlignment="Center"
+			    HorizontalAlignment="Right"
+			    Foreground="#FFFF5B5B" 
+               Content="Resolution:"
+               FontFamily="Zekton Free"/>
         <ComboBox ItemsSource="{Binding Resolutions}" 
 			      Grid.Row="1" 
 			      Grid.Column="1"
@@ -39,7 +41,8 @@
 			      Cursor="Hand"
                   FontSize="18"
                   VerticalContentAlignment="Center"
-                  Foreground="#FFFF5B5B">
+                  Foreground="#FFFF5B5B"
+                  FontFamily="Zekton Free">
             <ComboBox.Template>
                 <ControlTemplate TargetType="{x:Type ComboBox}">
                     <Grid x:Name="templateRoot" 
@@ -193,10 +196,12 @@
             </ComboBox.Template>
         </ComboBox>
         <Label Grid.Row="2"
-			FontSize="20" 
-			VerticalAlignment="Center"
-			HorizontalAlignment="Right"
-			Foreground="#FFFF5B5B" Content="Quality:"/>
+			    FontSize="20" 
+			    VerticalAlignment="Center"
+			    HorizontalAlignment="Right"
+			    Foreground="#FFFF5B5B" 
+               Content="Quality:"
+               FontFamily="Zekton Free"/>
         <ComboBox Grid.Row="2" 
 			      Grid.Column="1"
 			      Cursor="Hand" 
@@ -205,7 +210,8 @@
                   Background="#FF2C2E36"
                   FontSize="18"
                   VerticalContentAlignment="Center"
-                  VerticalAlignment="Center">
+                  VerticalAlignment="Center"
+                  FontFamily="Zekton Free">
             <ComboBox.Template>
                 <ControlTemplate TargetType="{x:Type ComboBox}">
                     <Grid x:Name="templateRoot" 
@@ -360,17 +366,42 @@
             <ComboBoxItem Content="Low"/>
             <ComboBoxItem IsSelected="True" Content="Medium"/>
             <ComboBoxItem Content="High"/>
-            <ComboBoxItem Content="F*cking BEAST"/>
+            <ComboBoxItem Content="BEAST MODE!"/>
         </ComboBox>
         <CheckBox Grid.Row="3" 
-			Grid.Column="1" 
-			VerticalAlignment="Center"
-			Foreground="#FFFF5B5B"
-			Cursor="Hand" Content="Windowed mode"/>
+			    Grid.Column="1" 
+			    VerticalAlignment="Center"
+			    Foreground="#FFFF5B5B"
+                FontFamily="Zekton Free"
+			    Cursor="Hand" Content="Windowed mode"/>
         <Button Grid.Row="4" 
-			Grid.ColumnSpan="2"
-			Margin="15, 5, 15, 5"
-			Cursor="Hand" Content="PLAY"/>
+			    Grid.ColumnSpan="2"
+			    Margin="15, 5, 15, 5"
+                Background="#FF37A8D2"
+                Foreground="White"
+                BorderBrush="#FF3196BC"
+                BorderThickness="0,0,0,5"
+                FontFamily="Zekton Free"
+                FontSize="18"
+			Cursor="Hand" Content="PLAY">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type ButtonBase}">
+                    <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                        <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="border" Value="#1b7ea3"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="#187192"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Background" TargetName="border" Value="#FF838383"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="#FF666666"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
     </Grid>
     <UserControl.Resources>
         <Style x:Key="{x:Type ComboBoxItem}" TargetType="{x:Type ComboBoxItem}">
