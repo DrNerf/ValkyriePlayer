@@ -11,6 +11,8 @@ namespace Common
     {
         public const string DefaultTitle = "Valkyrie Player";
 
+        public const string DefaultSplashImage = "\\Images\\VGLogoWithShadow.png";
+
         public static IEnumerable<string> GetAvailableResolutions()
         {
             var scope = new ManagementScope();

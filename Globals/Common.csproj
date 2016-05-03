@@ -58,6 +58,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\spinner.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Content Include="Images\loading.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

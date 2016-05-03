@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:prism="http://www.codeplex.com/prism"
         Title="MainWindow" Height="500" Width="350" WindowStyle="None" AllowsTransparency="True"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        Icon="Images/VGLogoWithShadow.ico">
     <Border BorderThickness="2, 0, 2, 2" BorderBrush="#FFFF5B5B">
         <DockPanel Background="#FF2C2E36">
             <DockPanel DockPanel.Dock="Top" 
@@ -73,29 +74,7 @@
                 </Grid>
             </DockPanel>
             <Grid>
-                <!--<ContentControl Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" prism:RegionManager.RegionName="SettingsRegion"></ContentControl>-->
-                <MediaElement Source="{StaticResource LoadingMedia}" 
-                              LoadedBehavior="Play" 
-                              HorizontalAlignment="Center" 
-                              VerticalAlignment="Center"
-                              Name="LoadingElement">
-                    <MediaElement.Triggers>
-                        <EventTrigger RoutedEvent="MediaElement.Loaded">
-                            <EventTrigger.Actions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-
-                                        <!-- The MediaTimeline has a RepeatBehavior="Forever" which makes the media play
-                         over and over indefinitely.-->
-                                        <MediaTimeline Source="{StaticResource LoadingMedia}" Storyboard.TargetName="LoadingElement"  
-                     RepeatBehavior="Forever" />
-
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </EventTrigger.Actions>
-                        </EventTrigger>
-                    </MediaElement.Triggers>
-                </MediaElement>
+                <ContentControl Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" prism:RegionManager.RegionName="SettingsRegion"></ContentControl>
             </Grid>
         </DockPanel>
     </Border>

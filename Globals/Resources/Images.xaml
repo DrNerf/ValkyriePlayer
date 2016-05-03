@@ -7,4 +7,5 @@
                     xmlns:sys="clr-namespace:System;assembly=System"
              mc:Ignorable="d">
     <sys:Uri x:Key="LoadingMedia">Images/loading.gif</sys:Uri>
+    <ImageSource x:Key="LoadingSpinnerUri">..\..\Globals\Images\spinner.gif</ImageSource>
 </ResourceDictionary>
