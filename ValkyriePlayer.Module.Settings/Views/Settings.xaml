@@ -441,10 +441,9 @@
                 BorderThickness="0,0,0,5"
                 FontFamily="Zekton Free"
                 FontSize="18"
+                Command="{Binding PlayCommand}"
 			Cursor="Hand">
-            <Image gif:ImageBehavior.AnimatedSource="pack://ValkyriePlayer:,,,/Common;component/Images/spinner.gif"
-                   gif:ImageBehavior.AutoStart="True"
-                   gif:ImageBehavior.AnimateInDesignMode="True"/>
+            PLAY
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type ButtonBase}">
                     <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">

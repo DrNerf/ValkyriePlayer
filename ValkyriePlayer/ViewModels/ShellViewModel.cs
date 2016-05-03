@@ -1,5 +1,7 @@
 ﻿using Common;
+using Common.Events;
 using Microsoft.Practices.Prism.Mvvm;
+using Microsoft.Practices.Prism.PubSubEvents;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -19,10 +21,25 @@ namespace ValkyriePlayer.ViewModels
             set { m_PlayerTitle = value; }
         }
 
-        public ShellViewModel()
+        private bool m_IsAppBusy = false;
+
+        public bool IsAppBusy
+        {
+            get { return m_IsAppBusy; }
+            set { SetProperty(ref m_IsAppBusy, value); }
+        }
+
+
+        public ShellViewModel(IEventAggregator eventAggregator)
         {
             string title = ConfigurationManager.AppSettings["gameTitle"];
             m_PlayerTitle = title == "default" ? Globals.DefaultTitle : title;
+            eventAggregator.GetEvent<RaiseIsAppBusyEvent>().Subscribe(RaiseIsAppBusy);
+        }
+
+        private void RaiseIsAppBusy(bool obj)
+        {
+            IsAppBusy = obj;
         }
     }
 }

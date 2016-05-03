@@ -1,4 +1,5 @@
 ﻿using Microsoft.Practices.Prism.Mvvm;
+using Microsoft.Practices.Prism.PubSubEvents;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,10 +23,10 @@ namespace ValkyriePlayer.Module.Settings
     /// </summary>
     public partial class Settings : UserControl, IView
     {
-        public Settings()
+        public Settings(IEventAggregator eventAggregator)
         {
             InitializeComponent();
-            DataContext = new SettingsViewModel();
+            DataContext = new SettingsViewModel(eventAggregator);
         }
     }
 }

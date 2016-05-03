@@ -2,9 +2,13 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:prism="http://www.codeplex.com/prism"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
         Title="MainWindow" Height="500" Width="350" WindowStyle="None" AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
         Icon="Images/VGLogoWithShadow.ico">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibility" />
+    </Window.Resources>
     <Border BorderThickness="2, 0, 2, 2" BorderBrush="#FFFF5B5B">
         <DockPanel Background="#FF2C2E36">
             <DockPanel DockPanel.Dock="Top" 
@@ -75,6 +79,13 @@
             </DockPanel>
             <Grid>
                 <ContentControl Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" prism:RegionManager.RegionName="SettingsRegion"></ContentControl>
+                <Image gif:ImageBehavior.AnimatedSource="Images\loading.gif"
+                       gif:ImageBehavior.AutoStart="True"
+                       gif:ImageBehavior.AnimateInDesignMode="True"
+                       Stretch="UniformToFill"
+                       HorizontalAlignment="Center"
+                       Panel.ZIndex="999"
+                       Visibility="{Binding IsAppBusy, Converter={StaticResource BooleanToVisibility}}"/>
             </Grid>
         </DockPanel>
     </Border>
