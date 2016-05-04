@@ -146,9 +146,9 @@
       <Project>{8d237e42-1c0c-46d1-af25-7d0dfd500cb8}</Project>
       <Name>Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ValkyriePlayer.Module.Settings\ValkyriePlayer.Module.Settings.csproj">
+    <ProjectReference Include="..\ValkyriePlayer.Module.Settings\ValkyriePlayer.Module.Main.csproj">
       <Project>{f395872d-2a8c-4ac5-95a8-f07638c37757}</Project>
-      <Name>ValkyriePlayer.Module.Settings</Name>
+      <Name>ValkyriePlayer.Module.Main</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

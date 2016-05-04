@@ -78,7 +78,7 @@
                 </Grid>
             </DockPanel>
             <Grid>
-                <ContentControl Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" prism:RegionManager.RegionName="SettingsRegion"></ContentControl>
+                <ContentControl Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" prism:RegionManager.RegionName="MainRegion"></ContentControl>
                 <Image gif:ImageBehavior.AnimatedSource="Images\loading.gif"
                        gif:ImageBehavior.AutoStart="True"
                        gif:ImageBehavior.AnimateInDesignMode="True"

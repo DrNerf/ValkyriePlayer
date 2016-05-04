@@ -1,5 +1,4 @@
 ﻿using Microsoft.Practices.Prism.Mvvm;
-using Microsoft.Practices.Prism.PubSubEvents;
 using Microsoft.Practices.Prism.Regions;
 using System;
 using System.Collections.Generic;
@@ -15,19 +14,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ValkyriePlayer.Module.Main.ViewModels;
 
 namespace ValkyriePlayer.Module.Main
 {
     /// <summary>
-    /// Interaction logic for Settings.xaml
+    /// Interaction logic for Browser.xaml
     /// </summary>
-    public partial class Settings : UserControl, IView, INavigationAware, IRegionMemberLifetime
+    public partial class Browser : UserControl, IView, INavigationAware, IRegionMemberLifetime
     {
-        public Settings(IEventAggregator eventAggregator, IRegionManager regionManager)
+        public Browser()
         {
             InitializeComponent();
-            DataContext = new SettingsViewModel(eventAggregator, regionManager);
         }
 
         public bool KeepAlive

@@ -6,20 +6,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ValkyriePlayer.Module.Settings
+namespace ValkyriePlayer.Module.Main
 {
-    public class SettingsModule : IModule
+    public class MainModule : IModule
     {
         private readonly IRegionViewRegistry m_RegionViewRegistry = null;
 
-        public SettingsModule(IRegionViewRegistry regionViewRegistry)
+        public MainModule(IRegionViewRegistry regionViewRegistry)
         {
             m_RegionViewRegistry = regionViewRegistry;
         }
 
         public void Initialize()
         {
-            m_RegionViewRegistry.RegisterViewWithRegion("SettingsRegion", typeof(Settings));
+            m_RegionViewRegistry.RegisterViewWithRegion("MainRegion", typeof(Settings));
+            m_RegionViewRegistry.RegisterViewWithRegion("MainRegion", typeof(Browser));
         }
     }
 }

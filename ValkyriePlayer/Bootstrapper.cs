@@ -8,6 +8,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using ValkyriePlayer.Module.Main;
 
 namespace ValkyriePlayer
 {
@@ -43,6 +44,8 @@ namespace ValkyriePlayer
         {
             base.ConfigureContainer();
             var container = (UnityContainer)Container;
+
+            container.RegisterType<Object, Browser>("Browser");
         }
     }
 }

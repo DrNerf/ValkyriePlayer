@@ -3,6 +3,7 @@ using Common.Events;
 using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Mvvm;
 using Microsoft.Practices.Prism.PubSubEvents;
+using Microsoft.Practices.Prism.Regions;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -11,11 +12,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 
-namespace ValkyriePlayer.Module.Settings.ViewModels
+namespace ValkyriePlayer.Module.Main.ViewModels
 {
     public class SettingsViewModel : BindableBase
     {
         private IEventAggregator m_eventAggregator;
+        private IRegionManager m_regionManager;
 
         public List<string> Resolutions { get; set; }
 
@@ -34,9 +36,10 @@ namespace ValkyriePlayer.Module.Settings.ViewModels
 
         public DelegateCommand PlayCommand { get; set; }
 
-        public SettingsViewModel(IEventAggregator eventAggregator)
+        public SettingsViewModel(IEventAggregator eventAggregator, IRegionManager regionManager)
         {
             m_eventAggregator = eventAggregator;
+            m_regionManager = regionManager;
             Resolutions = Globals.GetAvailableResolutions()
                 .Reverse()
                 .ToList();
@@ -48,7 +51,10 @@ namespace ValkyriePlayer.Module.Settings.ViewModels
 
         private void PlayButtonPressed()
         {
-            m_eventAggregator.GetEvent<RaiseIsAppBusyEvent>().Publish(true);
+            //m_eventAggregator.GetEvent<RaiseIsAppBusyEvent>().Publish(true);
+            IRegion region = m_regionManager.Regions.First();
+            var uri = new Uri("Browser", UriKind.Relative);
+            region.RequestNavigate(uri);
         }
     }
 }
