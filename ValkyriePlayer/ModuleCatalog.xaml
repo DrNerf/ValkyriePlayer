@@ -1,9 +1,0 @@
-﻿<Modularity:ModuleCatalog xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:ValkyriePlayer"
-                    xmlns:sys="clr-namespace:System;assembly=mscorlib"
-                    xmlns:Modularity="clr-namespace:Microsoft.Practices.Prism.Modularity;assembly=Microsoft.Practices.Prism.Composition">
-    <Modularity:ModuleInfo Ref="ValkyriePlayer.Module.Main" 
-                           ModuleName="MainModule"
-                           ModuleType="ValkyriePlayer.Module.Main.MainModule, ValkyriePlayer.Module.Main, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
-</Modularity:ModuleCatalog>
