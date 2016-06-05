@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ValkyriePlayer.Classes;
+using ValkyriePlayer.Views;
 
 namespace ValkyriePlayer
 {
@@ -23,6 +25,17 @@ namespace ValkyriePlayer
         public MainWindow()
         {
             InitializeComponent();
+            Navigator.Init(SetContent);
+            Navigator.Navigate(typeof(Settings));
+        }
+
+        private void SetContent(UserControl obj)
+        {
+            Dispatcher.BeginInvoke(new Action(() =>
+            {
+                ContentWrapper.Children.Clear();
+                ContentWrapper.Children.Add(obj);
+            }));
         }
     }
 }
